@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import Layout from './components/Layout';
+
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Chat from './components/Chat/Chat';
+import Join from './components/Join/Join';
 
 class App extends Component {
   render() {
     return (
-      <div className="container">
-      <Layout tittle="IRC" />
-      </div>
+      <Router>
+        <Route path="/" exact component={Join} />
+        <Route path="/chat" component={Chat} />
+      </Router>
     );
   }
 }
 
 export default App;
+
