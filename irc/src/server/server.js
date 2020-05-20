@@ -14,6 +14,8 @@ const io = socketio(server);
 app.use(cors());
 app.use(router);
 
+const PORT = process.env.PORT || 9292;
+
 io.on('connect', (socket) => {
   socket.on('join', ({ name, room }, callback) => {
     const { error, user } = addUser({ id: socket.id, name, room });
@@ -42,10 +44,10 @@ io.on('connect', (socket) => {
     const user = removeUser(socket.id);
 
     if(user) {
-      io.to(user.room).emit('message', { user: 'Bot of '+`${user.room}`+'Server', text: `${user.name} has Dematerialized 🛸 .` });
+      io.to(user.room).emit('message', { user: 'Bot of '+`${user.room}`+'Server', text: `${user.name} has Dematerialized 🛸 ` });
       io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)});
     }
   })
 });
 
-server.listen(process.env.PORT || 9292, () => console.log(`Server has started.`));
+server.listen(PORT, () => console.log(`Server run on Port: `+ PORT));

@@ -8,17 +8,19 @@
   background-color: #98D2EB;
   justify-content: space-between;
   width: 20%;
+  box-shadow: 10px 10px 2px 1px rgba(90, 90, 90, 0.3);
+
 }
 
 .activeContainer {
   display: flex;
+  padding-left: 145px;
+  margin-bottom: 10%;
   align-items: center;
-  margin-bottom: 50%;
 }
 
 .activeItem {
   display: flex;
-  align-items: center;
   color: #98D2EB !important;
 }
 
@@ -29,13 +31,41 @@
 }
 
 .title{
-  background-color: #212223;
-  border-radius: 10px;
-
+  background-color: black;
+  text-align: center;
 }
 
 .usersinserver{
-  background-color: #212223;
+  background-color: black;
   border-radius: 10px;
-  text-align: center !important;
+  text-align: center;
+  align-items: center;
+}
+.blank {
+  align-items: center;
+  padding-left: 10px;
+}
+.searchcontainer{
+   background-color: #98D2EB;
+   height: 100%;
+   font-size: 30px;
+}
+.btn-create{
+  width: 25%;
+  border:4px solid;
+  font-size: 35px;
+  height: 20%;
+  border-radius: 10px;
+  color: black;
+  background-color: #98D2EB;
+}
+.searchbar{
+  width: 75%;
+  height: 20%;
+  border-radius: 5px;
+  background-color: black;
+  color: #98D2EB;
+  border: 0;
+  margin-top: 1px;
+  font-size: 35px;
 }
