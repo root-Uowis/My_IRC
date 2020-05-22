@@ -40,6 +40,10 @@ io.on('connect', (socket) => {
     callback();
   });
 
+  socket.on('createcommand',({name},callback) =>{
+    
+  })
+
   socket.on('disconnect', () => {
     const user = removeUser(socket.id);
 

@@ -47,14 +47,16 @@ const Chat = ({ location }) => {
     event.preventDefault();
 
     if (message) {
-      console.log(message)
+      console.log(users)
       socket.emit('sendMessage', message, () => setMessage(''));
+    }else if (message == '/create'){
+      // console.log(users)
     }
   }
-  const Commands = (event) => {
-    console.log(message)
+  const Commands = (name) => {
+    console.log(name)
   }
-  
+
   return (
     <div className="outerContainer">
       <TextContainer users={users} />
@@ -64,8 +66,8 @@ const Chat = ({ location }) => {
         <Input message={message} setMessage={setMessage} sendMessage={sendMessage} Commands={Commands} />
       </div>
     </div>
-    
-    );
+
+  );
 }
 
 export default Chat;
