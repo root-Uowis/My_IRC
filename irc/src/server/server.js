@@ -40,8 +40,13 @@ io.on('connect', (socket) => {
     callback();
   });
 
-  socket.on('createcommand',({name},callback) =>{
-    
+  socket.on('usersCommand',(message ,callback) =>{
+    console.log('mdr')
+    const user = getUser(socket.id);
+
+    io.to(user.room).emit('message', { room: user.room, text: getUsersInRoom(user.room)});
+    callback();
+
   })
 
   socket.on('disconnect', () => {

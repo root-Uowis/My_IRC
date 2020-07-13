@@ -35,7 +35,9 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     socket.on('message', message => {
+      console.log(message)
       setMessages(messages => [...messages, message]);
+
     });
 
     socket.on("roomData", ({ users }) => {
@@ -46,11 +48,13 @@ const Chat = ({ location }) => {
   const sendMessage = (event) => {
     event.preventDefault();
 
-    if (message) {
+    if (message && message == '/users') {
       console.log(users)
+      socket.emit('usersCommand', message, () => setMessage(''));
+    } else if (message) {
+      console.log(message)
       socket.emit('sendMessage', message, () => setMessage(''));
-    }else if (message == '/create'){
-      // console.log(users)
+
     }
   }
   const Commands = (name) => {
